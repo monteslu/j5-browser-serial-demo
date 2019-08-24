@@ -27,10 +27,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Look in dev tools.  You should have <span style={{color: 'yellow'}}>five, board, & io</span> objects.
-        </p>
-        <button onClick={handleStart}>start</button>
+        {navigator.serial ? (
+          <p>
+            Look in dev tools.  You should have <span style={{color: 'yellow'}}>five, board, & io</span> objects.
+            <br/>
+            <button onClick={handleStart} style={{fontSize: '2rem'}}>start</button>
+          </p>
+        ) : (
+          <p>
+            <a href="https://wicg.github.io/serial/" rel="noopener noreferrer" target="_blank" style={{color: 'white'}}>Web Serial API not available</a>
+          </p>
+        )}
+        
+        
       </header>
     </div>
   );
